@@ -41,4 +41,3 @@ mukza project version2, and based on Vue + ExpressJS
 - [express와 vue 연결](http://vuejs.kr/2017/02/05/express-with-vue/ "title")
 - [express설치](http://expressjs.com/ko/starter/generator.html "title")
 
-### hi
