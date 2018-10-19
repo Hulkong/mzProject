@@ -38,8 +38,9 @@ mukza project version2, and based on Vue + ExpressJS
 5. git push origin master
 
 ### 소스 수정 및 배포시 주의사항
-- git remote -v 으로 원격저장소 연결확인
-- 브랜치 독립적으로 관리
+###### git remote -v 으로 원격저장소 연결확인
+###### 브랜치 독립적으로 관리
+
  1. 브랜치 생성: git checkout -b 브랜치명 
  2. 브랜치 원격저장소에 연결: git push origin 브랜치명
  3. 소스통합 실행
