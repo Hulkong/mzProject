@@ -37,7 +37,16 @@ mukza project version2, and based on Vue + ExpressJS
 4. git commit -m "커밋메시지"
 5. git push origin master
 
+### 소스 수정 및 배포시 주의사항
+- git remote -v 으로 원격저장소 연결확인
+- 브랜치 독립적으로 관리
+ 1. 브랜치 생성: git checkout -b 브랜치명 
+ 2. 브랜치 원격저장소에 연결: git push origin 브랜치명
+ 3. 소스통합 실행
+
 ### 참고문헌
 - [express와 vue 연결](http://vuejs.kr/2017/02/05/express-with-vue/ "title")
 - [express설치](http://expressjs.com/ko/starter/generator.html "title")
+- [git 기본명령어](https://rogerdudler.github.io/git-guide/index.ko.html "title")
+- [markdown 명령어](http://blog.hyeyoonjung.com/2017/05/30/how-to-use-markdown/ "title")
 
