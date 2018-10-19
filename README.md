@@ -18,19 +18,19 @@ mukza project version2, and based on Vue + ExpressJS
 | 쿼리 생성 | 미완료 |
 | 다음지도 연결 | 미완료 |
 
-#### 설치과정
+### 설치과정
 1. 원격 리포지토리 복사: git clone https://github.com/Hulkong/mzProject2.git
 2. 실행: cd backend && npm start
 
-#### 빌드
+### 빌드
 1. frontend 디렉토리 이동
 2. npm run build
 
-#### 실행
+### 실행
 1. backend 디렉토리 이동
 2. npm start
 
-#### 소스통합
+### 소스통합
 1. 루트 디렉토리(mzProject2) 이동
 2. git status
 3. git add .
