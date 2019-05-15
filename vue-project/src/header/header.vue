@@ -21,7 +21,7 @@ export default {
   },
   data: function() {
     return {
-      title : "여성안심귀갓길",    // 타이틀
+      title : "Mukza",    // 타이틀
       search : '',                // 검색어
       sResultList : [],           // 검색 결과 리스트
       sResultPaging : null,       // 검색 결과 페이징
