@@ -7,7 +7,7 @@
 </template>
 
 <script>
-// import $ from '../../js/lib/jquery/jquery-1.11.2.min.js'
+ import $ from "jquery"
 
 export default {
   components: {

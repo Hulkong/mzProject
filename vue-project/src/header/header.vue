@@ -1,6 +1,7 @@
 <template>
   <div class="headerApp">
 		<h1 class="logo">{{title}}</h1>
+  <div><img src="../assets/set/4078-256.png"></div> 
   </div>
 </template>
 
