@@ -62,3 +62,6 @@ typings/
 
 # document -> ppt, txt, picture, etc...
 document
+
+# package-lock.json
+package-lock.json

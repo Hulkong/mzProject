@@ -1,6 +1,6 @@
-# muk
+# openmate
 
-> mukza
+> A Vue.js project
 
 ## Build Setup
 

@@ -1,17 +1,18 @@
 <template>
-  <div id="app">
-    <mapApp></mapApp>
-  
-  </div>
+    <div id="app">
+        <headerApp></headerApp>
+        <mapApp defaultLayer="regionArea"></mapApp>
+    </div>
 </template>
 
 <script>
-import mapApp from './map/daum-map.vue'
-
+import mapApp from './body/body.vue'
+import headerApp from './header/header.vue'
 
 export default {
   name: 'app',
   components:{
+    headerApp : headerApp,
     mapApp : mapApp
     
   },
@@ -23,6 +24,5 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
 </style>
