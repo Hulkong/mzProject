@@ -9,7 +9,7 @@
 import mapApp from './body/body.vue'
 import headerApp from './header/header.vue'
 
-export default {
+export default {    
   name: 'app',
   components:{
     headerApp : headerApp,
