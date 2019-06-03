@@ -3,18 +3,19 @@
         <headerApp></headerApp>
         <mapApp defaultLayer="regionArea"></mapApp>
     </div>
+
+
 </template>
 
 <script>
-import mapApp from './body/body.vue'
-import headerApp from './header/header.vue'
+import mapApp from './components/map/map.vue'
+import headerApp from './components/header/header.vue'
 
 export default {    
   name: 'app',
   components:{
     headerApp : headerApp,
     mapApp : mapApp
-    
   },
   data () {
     return {

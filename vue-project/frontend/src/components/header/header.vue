@@ -1,7 +1,23 @@
 <template>
   <div class="headerApp">
-		<h1 class="logo">{{title}}</h1>
-  <div><img src="../assets/set/4078-256.png"></div> 
+		<!-- <h1 class="logo">{{title}}</h1> -->
+    <v-app>
+    <v-toolbar app>
+      <v-toolbar-title class="headline text-uppercase">
+        <span>Vuetify test : </span>
+        <span class="font-weight-light">{{title}}</span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn
+        flat
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+      >
+        <span class="mr-2">다른 버튼들을 넣어주세요~</span>
+      </v-btn>
+    </v-toolbar>
+  </v-app>
+
   </div>
 </template>
 
