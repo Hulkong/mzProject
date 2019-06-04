@@ -1,6 +1,6 @@
 <template>
   <div class="headerApp">
-    <search></search>
+    <search :searchWord="searchWord" :showSearchStoreList="showSearchStoreList"></search>
     <v-app>
     <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
@@ -17,7 +17,7 @@
           </v-layout>
         </v-container>
       </v-form>
-      <v-btn  fab dark small color="primary">
+      <v-btn  fab dark small color="primary" @click="goStoreSearch">
         <v-icon dark>fas fa-search</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
@@ -48,10 +48,16 @@ export default {
   components:{
     search
   },
+  methods: {
+    goStoreSearch() {
+      this.showSearchStoreList = true;
+    }
+  },
   data: function() {
     return {
       title : "Mukza_1001",    
-      searchWord : ''
+      searchWord : '',
+      showSearchStoreList : false
     }
   }
 };
