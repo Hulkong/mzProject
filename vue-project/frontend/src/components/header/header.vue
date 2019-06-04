@@ -1,19 +1,37 @@
 <template>
   <div class="headerApp">
-		<!-- <h1 class="logo">{{title}}</h1> -->
+    <search></search>
     <v-app>
     <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
         <span>Vuetify test : </span>
         <span class="font-weight-light">{{title}}</span>
       </v-toolbar-title>
+      <v-form>
+        <v-container>
+          <v-layout>
+          <v-flex xs60 md20>
+            <v-text-field v-model="searchWord" label="검색어를 입력해주세요." required>
+            </v-text-field>
+          </v-flex>
+          </v-layout>
+        </v-container>
+      </v-form>
+      <v-btn  fab dark small color="primary">
+        <v-icon dark>fas fa-search</v-icon>
+      </v-btn>
       <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">다른 버튼들을 넣어주세요~</span>
+      <v-btn fab dark small color="teal">
+        <v-icon dark>fas fa-bell</v-icon>
+      </v-btn>
+      <v-btn fab dark small color="teal">
+        <v-icon dark>fas fa-user</v-icon>
+      </v-btn>
+      <v-btn fab dark small color="teal">
+        <v-icon dark>fas fa-bars</v-icon>
+      </v-btn>
+      <v-btn fab dark small color="teal">
+        <v-icon dark>fas fa-cog</v-icon>
       </v-btn>
     </v-toolbar>
   </v-app>
@@ -23,53 +41,22 @@
 
 
 <script>
+import search from './search'
+
 export default {
-  components: {},
-  computed: {
-    // ...mapGetters({
-      // getInitInfo: "getInitMapInfo"
-    // })
-    //배열 또는 Object 이름을 변경하거나 할때엔 Object로 사용한다. //main.js의 getters 상속
-  },
-  watch: {
-  },
   props: {},
-  mounted: function() {
+  components:{
+    search
   },
   data: function() {
     return {
-      title : "Mukza_1001",    // 타이틀
-      search : '',                // 검색어
-      sResultList : [],           // 검색 결과 리스트
-      sResultPaging : null,       // 검색 결과 페이징
-      sResult : {},               // 
-      stopSearch : false,         // 검색 결과 선택시를 제외한 검색
-      sRsultListOpen : false,     // 검색 결과 리스트 on/off 여부
-      option : {
-        style : {
-          map :null,								        // marker가 올라갈 map
-          position:null,							      // marker의 위치
-          image: new daum.maps.MarkerImage(                          // marker의 이미지
-            '/images/map/marker-icon.png',
-            new daum.maps.Size(25,41)
-          ),	
-          title: '',								        // 툴팁의 text
-          draggalbe:false,						      // 드래그 가능한 marker
-          clickable:false,						      // 클릭 가능한 marker
-          zIndex:2,								          // marker의 z-index 속성값
-          visible: true,
-          opacity:1								          // marker의 투명도
-        },
-        titleKey : 'place_name',
-        InfowindowAble : true
-      }
-    };
-  },
-  methods: {
-   
-  } //배열 또는 Object 이름을 변경하거나 할때엔 Object로 사용한다.
+      title : "Mukza_1001",    
+      searchWord : ''
+    }
+  }
 };
 </script>
+
 
 <style>
 /* .headerApp{
@@ -85,7 +72,7 @@ export default {
 /* TOP */
 .headerApp{
   width: 100%;
-  height: 46px;
+  height: 60px;
 }
 fieldset{ border:0 none; } /* 선(테두리)없음 */
 .logo{ float:left; width:112px; padding-left:55px; padding-top:12px; padding-right:55px;}
