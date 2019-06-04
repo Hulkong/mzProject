@@ -1,6 +1,7 @@
 // 검색리스트
 <template>
-<div class="storeListApp" v-if="show">
+<div class="searchStoreListApp" v-if="show">
+    <v-container>
         <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
                 <v-card>
@@ -26,6 +27,7 @@
                 </v-card>
             </v-flex>
         </v-layout>
+    </v-container>
 </div>
 </template>
 
@@ -53,7 +55,7 @@ export default {
 
 
 <style>
-.storeListApp{
+.searchStoreListApp{
     position: fixed;
     z-index: 101;
     top: 60px;
