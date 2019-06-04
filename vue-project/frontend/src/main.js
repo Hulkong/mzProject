@@ -1,7 +1,6 @@
-
-
 import Vue from 'vue'
 import Vuetify from 'vuetify'
+import router from './components/routes/routes'
 import App from './App.vue'
 import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
 // import '@mdi/font/css/materialdesignicons.css'
@@ -11,6 +10,8 @@ Vue.use(Vuetify);
 
 new Vue({
   el: '#app',
+  iconfont: 'fa',
   render: h => h(App),
-  iconfont: 'fa'
+
+  router
 })

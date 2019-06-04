@@ -1,22 +1,11 @@
 <template>
-    <div id="app">
-        <headerApp></headerApp>
-        <mapApp defaultLayer="regionArea"></mapApp>
-    </div>
-
-
+   <router-view></router-view>
 </template>
 
 <script>
-import mapApp from './components/map/map.vue'
-import headerApp from './components/header/header.vue'
 
 export default {    
   name: 'app',
-  components:{
-    'headerApp' : headerApp,
-    'mapApp' : mapApp
-  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js A1p2p3'
