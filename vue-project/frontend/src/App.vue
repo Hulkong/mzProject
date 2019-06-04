@@ -1,10 +1,11 @@
 <template>
     <div id="app">
-        <headerApp></headerApp>
+        <!-- <headerApp></headerApp>
         <storeListApp></storeListApp>
-        <mapApp defaultLayer="regionArea"></mapApp>
+        <mapApp defaultLayer="regionArea"></mapApp> -->
+       <router-view></router-view>
     </div>
-
+    
 
 </template>
 
