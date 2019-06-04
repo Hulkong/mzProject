@@ -1,12 +1,12 @@
 // 검색리스트
 <template>
-<div class="searchStoreListApp" v-if="show">
+<div class="searchStoreListApp" v-if="showSearchStoreList">
     <v-container>
         <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
                 <v-card>
                     <v-toolbar color="pink" dark>
-                        <v-toolbar-title>장소명 [장소] 검색결과</v-toolbar-title>
+                        <v-toolbar-title>장소명 {{searchWord}} 검색결과</v-toolbar-title>
                     </v-toolbar>
                     <v-list two-line>
                         <template v-for="(item, index) in items">
@@ -35,12 +35,11 @@
 <script>
 
 export default {
-  props: {},
+  props: ['searchWord', 'showSearchStoreList'],
   components:{
   },
   data () {
     return {
-        show: true,
         items: [
             { action: '15 min', headline: 'Brunch this weekend?', title: 'Ali Connors', subtitle: "I'll be in your neighborhood doing errands this weekend. Do you want to hang out?" },
             { action: '2 hr', headline: 'Summer BBQ', title: 'me, Scrott, Jennifer', subtitle: "Wish I could come, but I'm out of town this weekend." },

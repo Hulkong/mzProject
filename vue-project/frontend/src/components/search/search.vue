@@ -1,5 +1,5 @@
 <template>
-  <searchStoreList></searchStoreList>
+  <searchStoreList :searchWord="searchWord" :showSearchStoreList="showSearchStoreList"></searchStoreList>
 </template>
 
 
@@ -18,7 +18,7 @@ export default {
   },
   watch: {
   },
-  props: {},
+  props: ['searchWord', 'showSearchStoreList'],
   mounted: function() {
   },
   data: function() {
