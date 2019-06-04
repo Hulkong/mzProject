@@ -41,7 +41,7 @@
 
 
 <script>
-import search from './search'
+import search from '../search/search'
 
 export default {
   props: {},

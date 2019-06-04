@@ -1,11 +1,15 @@
 <template>
-
+  <searchStoreList></searchStoreList>
 </template>
 
 
 <script>
+import searchStoreList from './searchStoreList'
+
 export default {
-  components: {},
+  components: {
+    searchStoreList
+  },
   computed: {
     // ...mapGetters({
       // getInitInfo: "getInitMapInfo"
