@@ -1,20 +1,24 @@
 <template>
     <div id="app">
         <headerApp></headerApp>
+        <storeListApp></storeListApp>
         <mapApp defaultLayer="regionArea"></mapApp>
     </div>
+
+
 </template>
 
 <script>
-import mapApp from './body/body.vue'
-import headerApp from './header/header.vue'
+import mapApp from './components/map/map.vue'
+import headerApp from './components/header/header.vue'
+import storeListApp from './components/store/searchStoreList.vue'
 
 export default {    
   name: 'app',
   components:{
     headerApp : headerApp,
-    mapApp : mapApp
-    
+    mapApp : mapApp,
+    storeListApp: storeListApp
   },
   data () {
     return {
