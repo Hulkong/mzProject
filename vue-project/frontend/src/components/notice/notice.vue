@@ -2,7 +2,7 @@
 <template>
 <div id="noticeApp">
     <v-layout row>
-      <v-flex xs12 sm6 offset-sm3>
+      <v-flex xs24 sm12 offset-sm6>
         <v-card>
           <v-toolbar color="cyan" dark>
             <v-toolbar-title>{{user}}님의 새로운 소식</v-toolbar-title>
@@ -88,7 +88,7 @@ export default {
     position: fixed;
     z-index: 101;
     top: 60px;
-    left: -140px;
+    left: 10px;
 }
 
 

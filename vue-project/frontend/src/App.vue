@@ -1,5 +1,6 @@
 <template>
   <div>
+    <router-view></router-view>
     <router-view name="header"></router-view>
     <router-view name="map"></router-view>
   </div>

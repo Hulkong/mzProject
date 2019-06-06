@@ -21,7 +21,7 @@
         <v-icon dark>fas fa-search</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
-      <v-btn fab dark small color="teal">
+      <v-btn fab dark small color="teal" @click="goNotice">
         <v-icon dark>fas fa-bell</v-icon>
       </v-btn>
       <v-btn fab dark small color="teal">
@@ -51,6 +51,13 @@ export default {
   methods: {
     goStoreSearch() {
       this.showSearchStoreList = true;
+    },
+    goNotice() {
+      console.log('axiosTest');
+      axios.get('/notice')
+      .then(function(response){
+        console.log('notice');
+      });
     }
   },
   data: function() {
