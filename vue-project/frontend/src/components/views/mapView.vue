@@ -1,18 +1,18 @@
 <template>
-    <div id="app">
-        <headerApp></headerApp>
+    <div id="mapViewApp">
+        <!-- <headerApp></headerApp> -->
         <mapApp defaultLayer="regionArea"></mapApp>
     </div>
 </template>
 
 <script>
 import mapApp from '../map/map.vue';
-import headerApp from '../header/header.vue';
+// import headerApp from '../header/header.vue';
 
 export default {    
   name: 'app',
   components:{
-    'headerApp' : headerApp,
+    // 'headerApp' : headerApp,
     'mapApp' : mapApp
   },
   data () {

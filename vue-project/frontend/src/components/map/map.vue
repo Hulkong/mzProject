@@ -3,8 +3,8 @@
 <template>
   <div class="mapApp">
     <div class="mapArea"  :class="mapHalf">
+      <router-view></router-view>
     </div>
-    
   </div>
 </template>
 
