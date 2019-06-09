@@ -4,7 +4,8 @@
     <v-app>
     <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify test : </span>
+        <!-- <span>Vuetify test : </span> -->
+        <span>{{user.name}}</span>
         <span class="font-weight-light">{{title}}</span>
       </v-toolbar-title>
       <v-form>
@@ -48,16 +49,25 @@ export default {
   components:{
     search
   },
+  computed: {
+    user() {
+      return this.$store.state.user
+    }
+  },
   methods: {
     goStoreSearch() {
       this.showSearchStoreList = true;
     },
     goNotice() {
       console.log('axiosTest');
-      axios.get('/notice')
-      .then(function(response){
-        console.log('notice');
-      });
+      axios.get('/view/notice')
+      .then(response => {
+        // JSON responses are automatically parsed.
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      })
     }
   },
   data: function() {

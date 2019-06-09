@@ -4,6 +4,8 @@ import mainView from '../views/mainView.vue';
 import mapView from '../views/mapView.vue';
 import headerView from '../header/header';
 import noticeView from '../notice/notice';
+import settingView from '../setting/setting';
+import userInfoView from '../setting/userInfo';
 
 Vue.use(VueRouter);
 
@@ -30,6 +32,17 @@ export default new VueRouter({
                 }
             ]
             // component : () => import(/* webpackChunkName: "map" */ "../views/mapView.vue") 
-        }
+        },
+        {
+            path : '/setting', 
+            name : 'setting page',
+            component : settingView,
+            children : [
+                {
+                    path: 'userInfo',
+                    component: userInfoView
+                }
+            ]
+        },
     ]
 });
