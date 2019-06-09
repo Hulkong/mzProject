@@ -95,7 +95,7 @@ export default {
 /* TOP */
 .headerApp{
   width: 100%;
-  height: 60px;
+  height: 50px;
 }
 fieldset{ border:0 none; } /* 선(테두리)없음 */
 .logo{ float:left; width:112px; padding-left:55px; padding-top:12px; padding-right:55px;}
