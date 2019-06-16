@@ -4,10 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
+import Vuex from 'vuex'
 import Vuetify from 'vuetify'
+import store from './store/store'
 import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
-// import '@fortawesome/fontawesome-free/css/all.css' 
-// import 'material-design-icons-iconfont/dist/material-design-icons.css' 
+import '@fortawesome/fontawesome-free/css/all.css' 
+import 'material-design-icons-iconfont/dist/material-design-icons.css' 
 
 Vue.prototype.$http = axios
 
@@ -17,7 +19,8 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  strict: true,
   render: h => h(App),
   router,
- // components: { App },  
+  store 
 })

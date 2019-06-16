@@ -2,7 +2,7 @@
     <div id="mapViewApp">
         <mapApp defaultLayer="regionArea"></mapApp>
     </div>
-</template>
+</template> 
 
 <script>
 import mapApp from '../map/map.vue';

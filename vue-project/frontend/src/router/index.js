@@ -5,9 +5,13 @@ Vue.use(Router)
 
 import mainView from '@/components/view/mainView'
 import mapView from '@/components/view/mapView'
+import headerView from '@/components/header/header';
+import noticeView from '@/components/notice/notice';
+
+import settingView from '@/components/setting/setting';
+import userInfoView from '@/components/setting/userInfo';
 
 import LoginPage from '@/components/loginPage'
-
 import MovieIndexPage from '@/components/movieIndexPage'
 import MovieShowPage from '@/components/movieShowPage'
 
@@ -17,7 +21,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'mainView',
+      name: 'main page',
       component: mainView
     },
     {
@@ -34,6 +38,31 @@ export default new Router({
       path: '/movie/:id',
       name: 'MovieShowPage',
       component: MovieShowPage
+    },
+    {
+      path : '/setting', 
+      name : 'setting page',
+      component : settingView,
+      children : [
+          {
+              path: 'userInfo',
+              component: userInfoView
+          }
+      ]
+    },
+    {
+      path : '/view', 
+      name : 'map page',
+      components : {
+        header : headerView,
+        map : mapView
+      },
+      children : [
+          {
+              path: 'notice',
+              component: noticeView
+          }
+      ]
     }
   ]
 })

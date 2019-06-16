@@ -1,5 +1,4 @@
 // map
-
 <template>
   <div class="mapApp">
     <div class="mapArea"  :class="mapHalf">
