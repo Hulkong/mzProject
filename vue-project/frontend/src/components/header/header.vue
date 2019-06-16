@@ -22,7 +22,7 @@
         <v-icon dark>fas fa-search</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
-      <v-btn fab dark small color="teal" @click="goNotice">
+      <v-btn fab dark small color="teal" to="/view/notice">
         <v-icon dark>fas fa-bell</v-icon>
       </v-btn>
       <v-btn fab dark small color="teal">
@@ -31,8 +31,8 @@
       <v-btn fab dark small color="teal">
         <v-icon dark>fas fa-bars</v-icon>
       </v-btn>
-      <v-btn fab dark small color="teal">
-        <v-icon dark>fas fa-cog</v-icon>
+       <v-btn fab dark small color="teal" to='/setting/userInfo'>
+        <v-icon dark>fas fa-cog</v-icon >
       </v-btn>
     </v-toolbar>
   </v-app>
