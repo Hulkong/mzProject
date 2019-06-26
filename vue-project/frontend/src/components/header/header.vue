@@ -1,10 +1,11 @@
-<template>
+
+<template> 
   <div class="headerApp">
     <search :searchWord="searchWord" :showSearchStoreList="showSearchStoreList"></search>
     <v-app>
     <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify test : </span>
+        <span>{{user.name}}</span>
         <span class="font-weight-light">{{title}}</span>
       </v-toolbar-title>
       <v-form>
@@ -21,7 +22,7 @@
         <v-icon dark>fas fa-search</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
-      <v-btn fab dark small color="teal" @click="goNotice">
+      <v-btn fab dark small color="teal" to="/view/notice">
         <v-icon dark>fas fa-bell</v-icon>
       </v-btn>
       <v-btn fab dark small color="teal">
@@ -30,8 +31,8 @@
       <v-btn fab dark small color="teal">
         <v-icon dark>fas fa-bars</v-icon>
       </v-btn>
-      <v-btn fab dark small color="teal">
-        <v-icon dark>fas fa-cog</v-icon>
+       <v-btn fab dark small color="teal" to='/setting/userInfo'>
+        <v-icon dark>fas fa-cog</v-icon >
       </v-btn>
     </v-toolbar>
   </v-app>
@@ -41,12 +42,16 @@
 
 
 <script>
-import search from '../search/search'
-
+import search from '@/components/search/search'
 export default {
   props: {},
   components:{
     search
+  },
+  computed: {
+    user() {
+      return this.$store.state.user
+    }
   },
   methods: {
     goStoreSearch() {
@@ -54,10 +59,14 @@ export default {
     },
     goNotice() {
       console.log('axiosTest');
-      axios.get('/notice')
-      .then(function(response){
-        console.log('notice');
-      });
+      axios.get('/view/notice')
+      .then(response => {
+        // JSON responses are automatically parsed.
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      })
     }
   },
   data: function() {
@@ -81,15 +90,12 @@ export default {
 }
 .headerApp h3 {margin:0;float: left; padding: 10px;}
 .headerApp input {margin-left:10px; margin-top: 10px;} */
-
 /* TOP */
 .headerApp{
   width: 100%;
-  height: 60px;
+  height: 0px;
 }
 fieldset{ border:0 none; } /* 선(테두리)없음 */
 .logo{ float:left; width:112px; padding-left:55px; padding-top:12px; padding-right:55px;}
 .logo a{display:block;}
-
-
 </style>

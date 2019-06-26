@@ -27,7 +27,6 @@
                 v-else
                 :key="item.title"
                 avatar
-                @click=""
               >
                 <v-list-tile-avatar>
                   <img :src="item.avatar">
@@ -48,7 +47,6 @@
 
 
 <script>
-
 export default {
   props: ['searchWord', 'showSearchStoreList'],
   components:{
@@ -90,6 +88,4 @@ export default {
     top: 60px;
     left: 10px;
 }
-
-
 </style>
