@@ -1,18 +1,24 @@
 <template>
-   <router-view></router-view>
+  <div>
+    <router-view></router-view>
+    <router-view name="header"></router-view>
+    <router-view name="map"></router-view>
+  </div>
 </template>
 
 <script>
-
-export default {    
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js A1p2p3'
-    }
-  }
+export default {
+  name: 'App'
 }
 </script>
 
-<style lang="scss">
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 </style>

@@ -5,7 +5,6 @@
 
 <script>
 import searchStoreList from './searchStoreList'
-
 export default {
   components: {
     searchStoreList
@@ -31,18 +30,18 @@ export default {
       sRsultListOpen : false,     // 검색 결과 리스트 on/off 여부
       option : {
         style : {
-          map :null,                        // marker가 올라갈 map
-          position:null,                    // marker의 위치
+          map :null,                        // marker가 올라갈 map
+          position:null,                    // marker의 위치
           image: new daum.maps.MarkerImage(                          // marker의 이미지
             '/images/map/marker-icon.png',
             new daum.maps.Size(25,41)
-          ),  
-          title: '',                        // 툴팁의 text
-          draggalbe:false,                  // 드래그 가능한 marker
-          clickable:false,                  // 클릭 가능한 marker
-          zIndex:2,                         // marker의 z-index 속성값
+          ),  
+          title: '',                        // 툴팁의 text
+          draggalbe:false,                  // 드래그 가능한 marker
+          clickable:false,                  // 클릭 가능한 marker
+          zIndex:2,                         // marker의 z-index 속성값
           visible: true,
-          opacity:1                         // marker의 투명도
+          opacity:1                         // marker의 투명도
         },
         titleKey : 'place_name',
         InfowindowAble : true

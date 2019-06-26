@@ -1,16 +1,14 @@
 // map
-
 <template>
   <div class="mapApp">
     <div class="mapArea"  :class="mapHalf">
+      <router-view></router-view>
     </div>
-    
   </div>
 </template>
 
 <script>
  import $ from "jquery"
-
 export default {
   components: {
   },
@@ -80,13 +78,10 @@ export default {
           tileAnimation: true,
           level: this.$data.zoomlevel // 지도의 확대 레벨
       };
-
       // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
       this.map = new daum.maps.Map(mapContainer, mapOption);
-
    //   this.showLayer(this.defaultLayer);
     }
-
   } //배열 또는 Object 이름을 변경하거나 할때엔 Object로 사용한다.
 };
 </script>
