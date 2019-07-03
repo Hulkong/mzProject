@@ -33,7 +33,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary" @click="goMukza">Login</v-btn>
+                <v-btn color="primary" to='/view'>Login</v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>
@@ -52,9 +52,6 @@
       source: String
     },
     method: {
-      goMukza() {
-        window.href="/view";
-      }
     }
   }
   </script>
