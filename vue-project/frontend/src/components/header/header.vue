@@ -1,7 +1,7 @@
 
 <template> 
   <div class="headerApp">
-    <search :searchWord="searchWord" :showSearchStoreList="showSearchStoreList"></search>
+    <!-- <search :searchWord="searchWord" :showSearchStoreList="showSearchStoreList"></search> -->
     <v-app>
     <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
@@ -56,17 +56,6 @@ export default {
   methods: {
     goStoreSearch() {
       this.showSearchStoreList = true;
-    },
-    goNotice() {
-      console.log('axiosTest');
-      axios.get('/view/notice')
-      .then(response => {
-        // JSON responses are automatically parsed.
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      })
     }
   },
   data: function() {

@@ -46,12 +46,12 @@ module.exports = {
 
   build: {
     // Template for index.html
-    // index: path.resolve(__dirname, '../dist/index.html'),
-    index: path.resolve(__dirname, '../../backend/public/index.html'),  // 수정되는 부분이다.
+    index: path.resolve(__dirname, '../dist/index.html'),
+    // index: path.resolve(__dirname, '../../backend/public/index.html'),  // 수정되는 부분이다.
 
     // Paths
-    // assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsRoot: path.resolve(__dirname, '../../backend/public'),   // 수정되는 부분이다.
+    assetsRoot: path.resolve(__dirname, '../dist'),
+    // assetsRoot: path.resolve(__dirname, '../../backend/public'),   // 수정되는 부분이다.
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
 
