@@ -1,119 +1,81 @@
 // map
 <template>
   <div class="mapApp">
-    <div class="mapArea"  :class="mapHalf">
-      <router-view></router-view>
-    </div>
+    <vue-daum-map
+
+      :appKey="appKey"
+
+      :center.sync="center"
+      :level.sync="level"
+      :mapTypeId="mapTypeId"
+      :libraries="libraries"
+
+      @load="onLoad"
+
+      @zoom_start="onMapEvent('zoom_start', $event)"
+      @zoom_changed="onMapEvent('zoom_changed', $event)"
+      @click="onMapEvent('click', $event)"
+   
+
+      style="width:1500px;height:1400px;">
+    </vue-daum-map>
   </div>
 </template>
 
-<script>
- import $ from "jquery"
-export default {
-  components: {
-  },
-//   computed: {
-//     ...mapGetters({
-//        getLayerInfos: "getGisLayers",      // 레이어 정보 가져오기
-//       getInitMapInfo: "getInitMapInfo"    // 맵 초기값 가져오기 ( center , zoomlevel )
-//     })
-//     //배열 또는 Object 이름을 변경하거나 할때엔 Object로 사용한다. //main.js의 getters 상속
-//   },
-  watch: {
-    // layers : function(data){
-    //     console.log(data);
-    // }
-    // center : function(e){
-    //   this.setCenter(e);
-    // }
-  },
-  props: ['defaultLayer'],
-  created: function(){
-    // 기본 지도 설정
-    this.setInitInfo();
-  },
-  mounted: function() {
-    this.createMap();
-  },
-  data: function() {
-    return {
-      zoomlevel : 7,
-      center : [126.570667, 33.450701],
-      map:null,
-      layers:[],
-      layerPopups:[],
-      bounds:null,
-      regionName : '',
-      mapHalf : 'mapHeight100',
-      searchResult : null,
-      searchLayer : null,
-      searchInfo : null
-    };
-  },
-  methods: {
-    // ...mapActions({ addLayer: "mapStore/addLayer",  }) ,//main.js의 action 상속
-    getChild : function(name){    // 현재 소스 하위의 소스 찾아주기
-      let vueObj = null;
-      for(let child of this.$children){
-        if(child.$options._componentTag == name) vueObj = child;
-      }
-      return vueObj;
-    },
-    setInitInfo: function(){      // 초기값 세팅
-      var initInfo = this.getInitMapInfo;
-      if(initInfo != null){
-        if(initInfo.center != null) this.$data.center = initInfo.center;
-        if(initInfo.zoomlevel != null) this.$data.zoomlevel = initInfo.zoomlevel;
-        if(initInfo.regionName != null) this.$data.regionName = initInfo.regionName;
-      }
-    },
-    createMap: function() {       // 지도 생성
-      // var mapContainer = this.$el;
-      var mapContainer = this.$el.lastChild;
-      // console.log(this);
-      var mapOption = {
-          center: new daum.maps.LatLng(this.$data.center[1], this.$data.center[0]), // 지도의 중심좌표
-          disableDoubleClick: true,
-          disableDoubleClickZoom: true,
-          tileAnimation: true,
-          level: this.$data.zoomlevel // 지도의 확대 레벨
-      };
-      // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-      this.map = new daum.maps.Map(mapContainer, mapOption);
-   //   this.showLayer(this.defaultLayer);
-    }
-  } //배열 또는 Object 이름을 변경하거나 할때엔 Object로 사용한다.
-};
-</script>
 
-<style>
-.mapApp{
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  display: block;
-  overflow: hidden;
-}
-.mapArea{
-  width: 100%;
-  height: 100%;
-}
-.mapHeight100{
-  height: 100%;
-}
-.mapHeight41{
-  height: 41%;
-}
-.labelRanking{
-  top: -30px;
-  left: -18px;
-  width: 36px;
-  height: 25px;
-  background:url(/images/map/bg_label.png) no-repeat;
-  color:#fff;
-  text-align:center;
-  font-weight: bold;
-  z-index: 100;
-  cursor:pointer;
-}
-</style>
+<script>
+  import VueDaumMap from 'vue-daum-map';
+  import config from '@/js/config';
+  import EventBus from '@/js/eventBus'
+
+  export default {
+    name: 'App',
+    components: {VueDaumMap},
+    data: () => ({
+      appKey: config.appKey,
+      center: {lat:33.450701, lng:126.570667},
+      level: 3,
+      mapTypeId: VueDaumMap.MapTypeId.NORMAL,
+      libraries: [],
+      mapObject: null,
+      psObject: null,
+      searchStoreList: []
+    
+    }),
+    methods: {
+      onLoad (map) {
+        // // 지도의 현재 영역을 얻어옵니다
+        // var bounds = map.getBounds();
+        // // 영역정보를 문자열로 얻어옵니다. ((남,서), (북,동)) 형식입니다
+        // var boundsStr = bounds.toString();
+        // console.log('Daum Map Loaded', boundsStr);
+
+
+        this.mapObject = map;
+        this.psObject = new kakao.maps.services.Places(); 
+        this.infowindowObject = new kakao.maps.InfoWindow({zIndex:1});
+
+        this.mapData();
+     //   this.$store.commit('addMapInfo', map);
+      },
+      mapData() {
+        EventBus.$emit('triggerMapData', this.mapObject)
+      },
+      onMapEvent (event, params) {
+        
+        //   var map = this.mapObject;
+        //   // 지도를 클릭한 위치에 표출할 마커입니다
+        //   var marker = new kakao.maps.Marker({ 
+        //       // 지도 중심좌표에 마커를 생성합니다 
+        //       position: map.getCenter() 
+        //   }); 
+        //   // 지도에 마커를 표시합니다
+        //   marker.setMap(map);
+        // console.log(`Daum Map Event(${event})`, map);
+          
+     //     this.searchPlace();
+
+      }
+    }
+  }
+</script>

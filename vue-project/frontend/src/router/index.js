@@ -56,13 +56,7 @@ export default new Router({
       components : {
         header : headerView,
         map : mapView
-      },
-      children : [
-          {
-              path: 'notice',
-              component: noticeView
-          }
-      ]
+      }
     }
   ]
 })

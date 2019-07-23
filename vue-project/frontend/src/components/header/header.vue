@@ -1,11 +1,11 @@
 
 <template> 
   <div class="headerApp">
-    <search :searchWord="searchWord" :showSearchStoreList="showSearchStoreList"></search>
+    <searchStoreList :searchWord="searchWord" :showSearchStoreList="showSearchStoreList" ref="search"></searchStoreList>
     <v-app>
     <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
-        <span>{{user.name}}</span>
+        <span></span>
         <span class="font-weight-light">{{title}}</span>
       </v-toolbar-title>
       <v-form>
@@ -42,39 +42,33 @@
 
 
 <script>
-import search from '@/components/search/search'
+import searchStoreList from '@/components/search/searchStoreList'
+
 export default {
   props: {},
   components:{
-    search
+    searchStoreList
   },
-  computed: {
-    user() {
-      return this.$store.state.user
-    }
-  },
-  methods: {
-    goStoreSearch() {
-      this.showSearchStoreList = true;
-    },
-    goNotice() {
-      console.log('axiosTest');
-      axios.get('/view/notice')
-      .then(response => {
-        // JSON responses are automatically parsed.
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      })
-    }
-  },
-  data: function() {
+  data() {
     return {
       title : "Mukza_1001",    
       searchWord : '',
-      showSearchStoreList : false
+      showSearchStoreList : false,
+      map: 0
     }
+  },
+  computed: {
+    // mapData() {
+    //   return this.$store.state.user
+    // }
+  },
+  methods: {
+    goStoreSearch() {
+      //  let daumMaps = window.kakao.maps;
+
+        // 검색
+      this.$refs.search.searchPlace(); 
+    },
   }
 };
 </script>

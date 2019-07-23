@@ -7,16 +7,19 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     strict: true,
     state: {
-        user: 
+        mapData: 
             {
-              name: 'dasom',
-              title: 'BBB',
-              completed: true
+              mapObject: '',
+              psObject: '',
+              infowindowObject: ''
             }
     },
       getters: {
       },
       mutations: {
+        addMapInfo(state, mapInfo) {
+          state.mapData.mapObject = mapInfo;
+        },
       },
       actions: {
       }
