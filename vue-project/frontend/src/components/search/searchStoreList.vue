@@ -24,6 +24,7 @@
                         <v-divider v-if="index + 1 < searchPlaces.length" :key="`divider-${index}`"></v-divider>
                         </template>
                     </v-list>
+                    <v-pagination v-model="pagination.current" :length="pagination.last" circle @click="test"></v-pagination>
                 </v-card>
             </v-flex>
         </v-layout>
@@ -45,6 +46,9 @@ export default {
     });
   },
   methods: {
+    test(){
+        this.pagination.gotoPage(this.pagination.current);
+    },
     searchPlace() {
         var keyword = this.searchWord;
         this.psObject.keywordSearch(keyword, this.placesSearchCB); 
@@ -54,6 +58,7 @@ export default {
           // 정상적으로 검색이 완료됐으면
           // 검색 목록과 마커를 표출합니다
           this.searchPlaces = data;
+          this.pagination = pagination;
           this.displayPlaces(data);
         } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
             alert('검색 결과가 존재하지 않습니다.');
@@ -76,7 +81,6 @@ export default {
         outer();
     },
     closeListMarkerTooltip(){
-    //    let infowindow = new kakao.maps.InfoWindow();
         let outer = makeOutListener(this.mInfoWindo);
         outer();
     },
@@ -149,7 +153,11 @@ export default {
         psObject: new kakao.maps.services.Places(),
         searchPlaces: [],
         markers: [],
-        mInfoWindow: null
+        mInfoWindow: null,
+        pagination: {
+            first: 1,
+            last: 0
+        }
     }
   }
 };
